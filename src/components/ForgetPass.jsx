@@ -11,7 +11,7 @@ const ForgetPass = () => {
     e.preventDefault();
 
     try {
-      await axios.post("/api/auth/forgot/request-otp", { email });
+      await axios.post("/api/auth/forgot-password/request-otp", { email });
       localStorage.setItem("resetEmail", email);
       navigate('/otp-verify', {
         state: {

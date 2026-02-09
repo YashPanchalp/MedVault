@@ -112,7 +112,7 @@ const Otp = () => {
       alert(response.data);
     }
   } else if (type === "reset") {
-    response = await axios.post("/api/auth/forgot/verify-otp", {
+    response = await axios.post("/api/auth/forgot-password/verify-otp", {
       email: userData.email,
       otp: otpValue
     });
