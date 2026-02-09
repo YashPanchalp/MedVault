@@ -7,6 +7,8 @@ import ForgetPass from './components/ForgetPass';
 import SetPass from './components/SetPass';
 import PatientDashboard from './components/PatientDashboard';
 import DoctorDashboard from './components/DoctorDashboard';
+import PatientProfile from './components/Profile/PatientProfile';
+import DoctorProfile from './components/Profile/DoctorProfile';
 import './index.css';
 
 const DashboardGate = () => {
@@ -34,6 +36,8 @@ function App() {
         <Route path="/dashboard" element={<DashboardGate />} />
         <Route path="/patient-dashboard" element={<PatientDashboard />} />
         <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
+        <Route path="/patient-profile" element={<PatientProfile />} />
+        <Route path="/doctor-profile" element={<DoctorProfile />} />
         
         
         {/* Catch all - redirect to login */}

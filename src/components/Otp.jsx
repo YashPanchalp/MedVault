@@ -93,6 +93,7 @@ const Otp = () => {
       if (userData?.role) {
         localStorage.setItem("role", String(userData.role).toLowerCase());
       }
+      localStorage.setItem("medvaultProfile", JSON.stringify(userData));
       alert("Registration successful!");
       navigate("/login");
     } else {

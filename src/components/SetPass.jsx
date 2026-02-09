@@ -122,7 +122,8 @@ const SetPass = () => {
         </form>
 
         <div className="setpass-footer">
-          <p>Back to
+          <p>
+            Back to{' '}
             <button onClick={() => navigate('/login')} className="link-btn">
               Sign In
             </button>

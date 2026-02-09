@@ -126,6 +126,15 @@
 	justify-content: center;
 	color: white;
 	box-shadow: var(--shadow-sm);
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	transition: all var(--transition-normal);
+}
+
+.user-avatar:hover {
+	transform: scale(1.08);
+	box-shadow: var(--shadow-md);
 }
 
 .user-avatar svg {
@@ -190,9 +199,95 @@
 
 .dashboard-main {
 	flex: 1;
-	max-width: 1400px;
+	max-width: none;
 	width: 100%;
-	margin: 0 auto;
+	margin: 0;
+	padding: 0;
+}
+
+/* ============================================
+	 DASHBOARD LAYOUT + SIDEBAR
+	 ============================================ */
+
+.dashboard-layout {
+	display: grid;
+	grid-template-columns: 260px minmax(0, 1fr);
+	gap: 2rem;
+	align-items: start;
+}
+
+.dashboard-sidebar {
+	position: sticky;
+	top: 6.5rem;
+	background: var(--bg-card);
+	border: 1px solid var(--border-light);
+	border-left: none;
+	border-radius: 0 20px 20px 0;
+	padding: 1.75rem 1.5rem;
+	box-shadow: var(--shadow-lg);
+}
+
+.sidebar-header {
+	margin-bottom: 1.5rem;
+}
+
+.sidebar-title {
+	font-size: var(--text-xl);
+	font-weight: var(--weight-extra);
+	color: var(--text-primary);
+	margin-bottom: 0.35rem;
+}
+
+.sidebar-subtitle {
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+}
+
+.sidebar-nav {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.sidebar-item {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.85rem 1rem;
+	border-radius: 14px;
+	background: var(--bg-secondary);
+	border: 1px solid transparent;
+	color: var(--text-primary);
+	text-decoration: none;
+	transition: all var(--transition-normal);
+}
+
+.sidebar-item:hover {
+	background: var(--bg-hover);
+	border-color: var(--border);
+	transform: translateX(4px);
+}
+
+.sidebar-icon {
+	width: 36px;
+	height: 36px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.1rem;
+	color: white;
+	box-shadow: var(--shadow-sm);
+}
+
+.sidebar-label {
+	font-size: var(--text-sm);
+	font-weight: var(--weight-semibold);
+	letter-spacing: 0.01em;
+}
+
+.dashboard-content {
+	min-width: 0;
 	padding: 3rem 2rem;
 }
 
@@ -458,6 +553,26 @@
 	 ============================================ */
 
 @media (max-width: 1200px) {
+	.dashboard-layout {
+		grid-template-columns: 1fr;
+		padding: 2rem;
+	}
+
+	.dashboard-sidebar {
+		position: static;
+		border-radius: 20px;
+		border-left: 1px solid var(--border-light);
+	}
+
+	.sidebar-nav {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.sidebar-item {
+		flex: 1 1 220px;
+	}
+
 	.health-stats {
 		position: static;
 		margin: 2rem auto 0;
@@ -492,6 +607,14 @@
 	.cards-grid {
 		grid-template-columns: 1fr;
 		gap: 1.5rem;
+	}
+
+	.sidebar-nav {
+		flex-direction: column;
+	}
+
+	.sidebar-item {
+		flex: 1 1 auto;
 	}
   
 	.health-stats {
