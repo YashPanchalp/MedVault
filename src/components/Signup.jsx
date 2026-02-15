@@ -70,17 +70,20 @@ const Signup = () => {
     }
 
     try {
-      await axios.post("/api/auth/register/request-otp", {
-        email: formData.email
-      });
+     const response = await axios.post("/api/auth/register/request-otp", {
+  email: formData.email
+});
 
-      // Navigate to OTP page and pass entire form data
-      navigate('/otp-verify', {
-        state: {
-          type: "register",
-          userData: formData
-        }
-      });
+if (response.data === "OTP sent to email") {
+  navigate('/otp-verify', {
+    state: {
+      type: "register",
+      userData: formData
+    }
+  });
+} else {
+  alert(response.data);
+}
     } catch (error) {
       console.error("OTP request failed:", error);
     }
